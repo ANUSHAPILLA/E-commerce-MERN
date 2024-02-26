@@ -1,0 +1,6 @@
+.admin {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 2vmax;
+}

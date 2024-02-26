@@ -1,0 +1,26 @@
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+}
+.headercontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2vmax;
+  width: 80vmax;
+  div > p {
+    width: 9vmax;
+    text-align: center;
+    margin: 1vmax;
+    font-size: 2vmax;
+    border-radius: 10px;
+  }
+  div > img,
+  button {
+    width: 9vmax;
+    text-align: center;
+    margin: 1vmax;
+    border-radius: 10px;
+  }
+}
