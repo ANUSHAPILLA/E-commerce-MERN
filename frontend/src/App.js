@@ -10,10 +10,6 @@ import banner_mens from "./components/assets/Ecommerce_Frontend_Assets/Assets/ba
 import banner_women from "./components/assets/Ecommerce_Frontend_Assets/Assets/banner_women.png";
 import { Footer } from "./components/Footer/Footer";
 //Routes congiguration and footer
-//check1
-//check1
-//check1
-//check1
 function App() {
   return (
     <div className="App">
