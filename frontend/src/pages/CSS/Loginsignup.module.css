@@ -1,0 +1,61 @@
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100vmax;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 12vmin;
+  color: azure;
+  background-color: #313d52;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  img {
+    width: 1.5vmax;
+    height: 3vmin;
+  }
+  h3 {
+    font-size: 1.5vmax;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  input {
+    
+    height: 1.5vmax;
+    width: 30vmax;
+  }
+  margin-top: 20vmin;
+}
+.follow {
+  display: flex;
+  width: 30vmax;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  button {
+    font-size: 1vmax;
+    cursor: pointer;
+    font-weight: bold;
+  }
+}
+#conatiner{
+  display: flex;
+  font-size: 1.5vmax;
+  margin-left: 25%;
+  flex-direction: column;
+  padding: 1.5vmax;
+  gap: 2vmax;
+  justify-content: center;
+  align-items: left;
+  width: 50vmax;
+  height: 70vmin;
+  background-color: aquamarine;
+}

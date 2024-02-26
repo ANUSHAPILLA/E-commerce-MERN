@@ -1,0 +1,32 @@
+.header {
+  margin-top: 2.5vmax;
+  text-align: center;
+  text-decoration: underline;
+}
+.container {
+  width: 90%;
+  margin-bottom: 2vmax;
+  margin-top: 4vmax;
+  text-align: center;
+  margin-left: 5%;
+  align-content: center;
+  img {
+    width: 95%;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  h3 {
+    width: 95%;
+    margin: 10px;
+  }
+}
+
+#old_price {
+  text-decoration: line-through;
+  font-size: 1.5vmax;
+  color: gray;
+}
+#new_price {
+  font-size: 1.5vmax;
+  color: indigo;
+}

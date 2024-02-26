@@ -1,0 +1,45 @@
+#footer {
+  width: 100vmax;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 12vmin;
+  background-color: #313d52;
+  color: azure;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  img {
+    width: 1.5vmax;
+    height: 3vmin;
+  }
+  h3 {
+    font-size: 1.5vmax;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  input {
+    height: 1.5vmax;
+    width: 30vmax;
+  }
+  margin-top: 20vmin;
+}
+#follow {
+  display: flex;
+  width: 30vmax;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.sub {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  button {
+    font-size: 1vmax;
+    cursor: pointer;
+    font-weight: bold;
+  }
+}

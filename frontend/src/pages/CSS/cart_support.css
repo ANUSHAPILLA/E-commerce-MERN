@@ -1,0 +1,94 @@
+#maincontainer{
+  display: flex;
+  flex-direction: row;
+ 
+}
+#maincon {
+  display: flex;
+  flex-direction: column;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+#sideContainer div {
+  width: 30vmax;
+  border: 1px solid black;
+  height: 50vmin;
+  margin-left: 2vmax;
+  margin-top: 3vmax;
+  background:linear-gradient(to right,#313d52,gray);
+  color:wheat;
+
+}
+
+#gri {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 60vmax;
+  gap: 0.4vmax;
+}
+
+#gri > div {
+  width: 9vmax;
+  text-align: center;
+  margin: 1vmax;
+  p {
+    font-size: 1.5vmax;
+  }
+}
+#gri button {
+  width: 2vmax;
+  height: 2vmax;
+  font-size: 10px;
+  border-radius: 5px;
+}
+.item1 {
+  width: 9vmax;
+  text-align: center;
+  margin: 1vmax;
+  font-size: 1vmax;
+  border-radius: 10px;
+}
+#conatiner {
+  display: flex;
+  font-size: 1.5vmax;
+  margin-left: 25%;
+  flex-direction: column;
+  padding: 1.5vmax;
+  gap: 2.5vmax;
+  justify-content: center;
+  align-items: center;
+  width: 50vmax;
+  z-index: auto;
+  border-radius: 20px;
+  background-color: gray;
+  input:hover {
+    padding: 0.5vmax;
+  }
+  input {
+    width: 50%;
+    height: 3vmax;
+    border-radius: 30px;
+    font-size: 1.5vmax;
+   text-align: center;
+
+  }
+  margin-top: 2vmax;
+}
+#subm {
+  width: 25%;
+}
+#google_in {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid wheat;
+  justify-content: space-around;
+  align-items: center;
+  height: 3vmax;
+  width: 40%;
+  border-radius: 10px;
+}
