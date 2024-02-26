@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import classes from "./Addproduct.module.css";
 import upload from "../../assets/upload_cloud_icon.svg";
+//Adding the product to mongoose
 export const Addproduct = () => {
   const [input, setInput] = useState({});
   const [image, setImage] = useState(false);
