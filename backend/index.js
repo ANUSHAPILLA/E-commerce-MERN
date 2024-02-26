@@ -19,7 +19,6 @@ mongoDB.connect(
 app.get("/", (req, res) => {
   res.send("Express app is running");
 });
-
 //Image storage Engine
 const storage = multer.diskStorage({
   destination: "./upload/images",
@@ -31,7 +30,7 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
-//creating upload
+//creating upload api for images
 app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
@@ -68,7 +67,7 @@ const Product = mongoose.model("Product", {
     default: true,
   },
 });
-//Adding mongoose Users schema 
+//Adding mongoose Users schema
 const Users = mongoose.model("Users", {
   name: {
     type: String,
@@ -122,6 +121,7 @@ app.post("/signup", async (req, res) => {
     token,
   });
 });
+//API for adding product to mongoose from admin panel
 app.post("/addproduct", async (req, res) => {
   const products = await Product.find({});
   console.log(products);
@@ -134,7 +134,6 @@ app.post("/addproduct", async (req, res) => {
   } else {
     id = 1;
   }
-
   const product = new Product({
     id: id,
     name: req.body.name,
@@ -149,6 +148,7 @@ app.post("/addproduct", async (req, res) => {
     name: req.body.name,
   });
 });
+//API for removing product to mongoose from admin panel
 app.post("/removeproduct", async (req, res) => {
   await Product.findOneAndDelete({ id: req.body.id });
   console.log("removed");
@@ -157,13 +157,14 @@ app.post("/removeproduct", async (req, res) => {
     name: req.body.id,
   });
 });
+//API for adding users cart products
 app.post("/cartproduct", async (req, res) => {
   await Users.updateOne({ auth: req.body.auth }, { cartData: req.body.cart });
   res.json({
     success: 1,
   });
 });
-
+//API for fetching products from db
 app.get("/allproducts", async (req, res) => {
   const products = await Product.find({});
   res.json({
@@ -171,6 +172,7 @@ app.get("/allproducts", async (req, res) => {
     data: products,
   });
 });
+//API for login
 app.post("/login", async (req, res) => {
   let user = await Users.findOne({ email: req.body.email });
   if (user) {
