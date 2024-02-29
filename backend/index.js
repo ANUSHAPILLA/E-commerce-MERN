@@ -124,11 +124,11 @@ app.post("/signup", async (req, res) => {
 //API for adding product to mongoose from admin panel
 app.post("/addproduct", async (req, res) => {
   const products = await Product.find({});
-  console.log(products);
+ 
   let id;
   if (products.length > 0) {
     const lastproduct = products.slice(-1);
-    console.log(lastproduct);
+
     var lastid = lastproduct[0];
     id = lastid.id + 1;
   } else {
@@ -151,18 +151,37 @@ app.post("/addproduct", async (req, res) => {
 //API for removing product to mongoose from admin panel
 app.post("/removeproduct", async (req, res) => {
   await Product.findOneAndDelete({ id: req.body.id });
-  console.log("removed");
+
   res.json({
     success: 1,
     name: req.body.id,
   });
 });
 //API for adding users cart products
-app.post("/cartproduct", async (req, res) => {
-  await Users.updateOne({ auth: req.body.auth }, { cartData: req.body.cart });
+app.post("/addcartproduct", async (req, res) => {
+ let user = await Users.findOne({ auth: req.body.auth })
+
+ if (user) {
+   user = user.cartData;
+  console.log(user);
+user=[...user,...req.body.cart]
+   await Users.updateOne({ auth: req.body.auth }, { cartData:user });
+ }
   res.json({
-    success: 1,
+    success: true,
   });
+});
+//API for fetching users cart products
+app.post("/fetchcartproduct", async (req, res) => {
+let userinfo;
+ if (req.body.auth){userinfo= await Users.findOne({ auth: req.body.auth })
+res.json({
+  success: 1,
+  data: userinfo.cartData,
+});
+}
+
+ 
 });
 //API for fetching products from db
 app.get("/allproducts", async (req, res) => {
@@ -170,6 +189,7 @@ app.get("/allproducts", async (req, res) => {
   res.json({
     success: 1,
     data: products,
+
   });
 });
 //API for login

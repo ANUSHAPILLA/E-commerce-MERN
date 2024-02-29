@@ -13,24 +13,25 @@ export const Cart = (props) => {
     AddtoCart,
     AddquantitytoCart,
     removeFromCart,
+    dbcartproducts
   } = useContext(ShopContext);
-  
+  console.log(cartItems)
   const [totalCost, setTotalcost] = useState(4);
   var sum=0
   
  useEffect(() => {
     var tct = [];  
-    cartItems.map(item=>{
+   dbcartproducts.map(item=>{
       var cs=item.quantity*item.newprice
       tct.push(cs)
     }) 
     for(let i=0;i<=tct.length-1;i++){
       sum += tct[i]
     }
-      console.log(sum);
+     
     setTotalcost(()=>{return sum})
-  }, [cartItems]);
-  console.log(totalCost)
+  }, [dbcartproducts]);
+ 
   return (
     <div id="maincontainer">
       <div id="container">
@@ -55,7 +56,7 @@ export const Cart = (props) => {
           </div>
         </div>
         <div>
-          {cartItems.length==0 ? <h1 style={{textAlign:"center"}}>No items in your cart</h1> : cartItems.map((item, index) => {
+          {dbcartproducts.length==0 ? <h1 style={{textAlign:"center"}}>No items in your cart</h1> : dbcartproducts.map((item, index) => {
             return (
               <div id="gri">
                 <p className="item1">{item.name}</p>
@@ -110,7 +111,7 @@ export const Cart = (props) => {
           </button>
         </div>
       </div>
-      {cartItems.length==0 && <div className={classes.footer}>
+      {dbcartproducts.length==0 && <div className={classes.footer}>
         <div className={classes.follow}>
           <h1>Follow us@</h1>
           <img src={instagram_icon} />

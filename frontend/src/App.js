@@ -8,9 +8,14 @@ import { Cart } from "./pages/Cart";
 import banner_kids from "./components/assets/Ecommerce_Frontend_Assets/Assets/banner_kids.png";
 import banner_mens from "./components/assets/Ecommerce_Frontend_Assets/Assets/banner_mens.png";
 import banner_women from "./components/assets/Ecommerce_Frontend_Assets/Assets/banner_women.png";
-import { Footer } from "./components/Footer/Footer";
-//Routes congiguration and footer
+import { useContext, useEffect, useMemo } from "react";
+import { ShopContext } from "./context/Context";
+import { useState } from "react"
+
 function App() {
+   const {cartItems}=useContext(ShopContext)
+ 
+  
   return (
     <div className="App">
       <BrowserRouter>

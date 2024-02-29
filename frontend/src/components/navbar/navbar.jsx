@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "../../context/Context";
 import { Cart } from "../../pages/Cart";
 export const Navbar = () => {
-  var { cartItems } = useContext(ShopContext);
+  var { dbcartproducts } = useContext(ShopContext);
   const [menu, setMenu] = useState("shop");
   const [loginstate, setloginstate] = useState(false);
   useEffect(() => {
@@ -97,7 +97,9 @@ export const Navbar = () => {
           </Link>
 
           <p className="cart_val">
-            {cartItems.length == 0 ? cartItems.length : cartItems.length}
+            {dbcartproducts && dbcartproducts.length == 0
+              ? dbcartproducts.length
+              : dbcartproducts.length}
           </p>
         </div>
       </div>
