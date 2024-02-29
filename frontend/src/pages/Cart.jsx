@@ -16,6 +16,7 @@ export const Cart = (props) => {
     dbcartproducts
   } = useContext(ShopContext);
   console.log(cartItems)
+  
   const [totalCost, setTotalcost] = useState(4);
   var sum=0
   

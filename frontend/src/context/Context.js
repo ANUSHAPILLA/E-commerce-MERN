@@ -15,24 +15,8 @@ const ShopcontextProvider = (props) => {
   const [cartItems, setCartItems] = useState([]);
 
   const fetchProducts = async () => {
-    await fetch("http://localhost:4000/fetchcartproduct", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ auth: localStorage.getItem("authtoken") }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setDbcartproducts(data.data);
-        console.log(dbcartproducts)
-      });
+   
   };
-
-  useMemo(async () => {
-    fetchProducts();
-  }, [cartItems]);
 
   useEffect(async () => {
     await fetch("http://localhost:4000/allproducts", {
@@ -46,17 +30,30 @@ const ShopcontextProvider = (props) => {
       .then((data) => {
         setAllproducts(data.data);
       });
+      
   }, []);
-
-  const AddtoCart = async (itemId) => {
+  useMemo(async()=>{
+     await fetch("http://localhost:4000/fetchcartproduct", {
+         method: "POST",
+         headers: {
+           Accept: "application/json",
+           "Content-Type": "application/json",
+         },
+         body: JSON.stringify({ auth: localStorage.getItem("authtoken") }),
+       })
+         .then((res) => res.json())
+         .then((data) => {
+           setDbcartproducts(data.data);
+         });
+  },[cartItems])
+console.log(dbcartproducts)
+const AddtoCart = async (itemId) => {
     
-    setCartItems( (pre) => {
+    setCartItems(async () => {
       itemId["quantity"] = 1;
-      var add_data = [...pre, itemId];
+      var add_data = [itemId];
       console.log(add_data)
-      return add_data
-    });
-     cartItems.length>0 ?
+    
       await fetch("http://localhost:4000/addcartproduct", {
         method: "POST",
         headers: {
@@ -65,11 +62,14 @@ const ShopcontextProvider = (props) => {
         },
         body: JSON.stringify({
           auth: localStorage.getItem("authtoken"),
-          cart: cartItems,
+          cart: add_data,
         }),
       })
         .then((res) => res.json())
-        .then((data) => {}): console.log("nothing in cart")
+        .then((data) => {})
+      return ""
+    });
+     
         
   };
   const removeFromCart = (itemId) => {
