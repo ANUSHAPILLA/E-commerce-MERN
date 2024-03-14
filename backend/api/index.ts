@@ -1,4 +1,4 @@
-const port = process.env.PORT;
+const port = 3000;
 const express = require("express");
 var app = express();
 const multer = require("multer");
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 //Image storage Engine
 const storage = multer.diskStorage({
-  destination: "./upload/images",
+  destination: "upload/images",
   filename: (req, file, cb) => {
     return cb(
       null,
@@ -31,7 +31,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 //creating upload api for images
-app.use("/images", express.static("./upload/images"));
+app.use("/images", express.static("upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
     success: 1,
