@@ -6,7 +6,7 @@
   "scripts": {
     "start": "snowpack dev --config snowpack.config.js",
     "start:cra": "react-scripts start",
-    "build": "ncc build index.js -o dist"
+    "build": "echo build"
   },
   "author": "",
   "license": "ISC",
