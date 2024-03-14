@@ -12,7 +12,7 @@ const ShopcontextProvider = (props) => {
   const [allproducts, setAllproducts] = useState([]);
 
   useEffect(async () => {
-    await fetch("http://localhost:4000/allproducts", {
+    await fetch("https://e-commerce-mern-alpha.vercel.app/allproducts", {
       method: "GET",
       headers: {
         Accept: "application/json",
