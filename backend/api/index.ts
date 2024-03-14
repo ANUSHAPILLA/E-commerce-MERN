@@ -31,7 +31,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 //creating upload api for images
-app.use("/images", express.static("upload/images"));
+app.use("/images", express.static("./upload/images"));
 app.post("/upload", upload.single("product"), (req, res) => {
   res.json({
     success: 1,
