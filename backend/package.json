@@ -6,7 +6,7 @@
   "scripts": {
     "start": "snowpack dev --config snowpack.config.js",
     "start:cra": "react-scripts start",
-    "build": "echo build"
+    "vercel-build": "echo build"
   },
   "author": "",
   "license": "ISC",
