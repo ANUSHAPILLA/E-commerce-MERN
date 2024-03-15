@@ -40,7 +40,8 @@ export const LoginSignUp = () => {
     setInputs({});
   };
   const handlesignup = async () => {
-    await fetch("http://localhost:3000/signup", {
+    console.log(inputs)
+    await fetch("https://e-commerce-mern-alpha.vercel.app/signup", {
       method: "POST",
       headers: {
         Accept: "application/json",
