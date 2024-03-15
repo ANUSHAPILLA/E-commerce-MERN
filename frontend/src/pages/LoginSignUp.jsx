@@ -19,7 +19,7 @@ export const LoginSignUp = () => {
 
   const handlelogin = async () => {
     let responsedata;
-    await fetch("http://localhost:4000/login", {
+    await fetch("https://e-commerce-mern-be-three.vercel.app/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -31,16 +31,16 @@ export const LoginSignUp = () => {
         return res.json();
       })
       .then((data) => {
-        responsedata=data;
-        if(responsedata.success){
-         localStorage.setItem('authtoken',responsedata.token)
-         window.location.replace("/")
+        responsedata = data;
+        if (responsedata.success) {
+          localStorage.setItem("authtoken", responsedata.token);
+          window.location.replace("/");
         }
       });
     setInputs({});
   };
   const handlesignup = async () => {
-    await fetch("http://localhost:4000/signup", {
+    await fetch("https://e-commerce-mern-be-three.vercel.app/signup", {
       method: "POST",
       headers: {
         Accept: "application/json",

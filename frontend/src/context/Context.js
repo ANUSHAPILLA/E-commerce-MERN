@@ -19,7 +19,7 @@ const ShopcontextProvider = (props) => {
   };
 
   useEffect(async () => {
-    await fetch("http://localhost:4000/allproducts", {
+    await fetch("https://e-commerce-mern-be-three.vercel.app/allproducts", {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -33,18 +33,21 @@ const ShopcontextProvider = (props) => {
       
   }, []);
   useMemo(async()=>{
-     await fetch("http://localhost:4000/fetchcartproduct", {
+     await fetch(
+       "https://e-commerce-mern-be-three.vercel.app/fetchcartproduct",
+       {
          method: "POST",
          headers: {
            Accept: "application/json",
            "Content-Type": "application/json",
          },
          body: JSON.stringify({ auth: localStorage.getItem("authtoken") }),
-       })
-         .then((res) => res.json())
-         .then((data) => {
-           setDbcartproducts(data.data);
-         });
+       }
+     )
+       .then((res) => res.json())
+       .then((data) => {
+         setDbcartproducts(data.data);
+       });
   },[cartItems])
 console.log(dbcartproducts)
 const AddtoCart = async (itemId) => {
@@ -54,19 +57,22 @@ const AddtoCart = async (itemId) => {
       var add_data = [itemId];
       console.log(add_data)
     
-      await fetch("http://localhost:4000/addcartproduct", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          auth: localStorage.getItem("authtoken"),
-          cart: add_data,
-        }),
-      })
+      await fetch(
+        "https://e-commerce-mern-be-three.vercel.app/addcartproduct",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            auth: localStorage.getItem("authtoken"),
+            cart: add_data,
+          }),
+        }
+      )
         .then((res) => res.json())
-        .then((data) => {})
+        .then((data) => {});
       return ""
     });
      
