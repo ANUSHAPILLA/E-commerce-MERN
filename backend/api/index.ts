@@ -153,14 +153,12 @@ app.post("/addcartproduct", async (req, res) => {
 });
 //API for fetching users cart products
 app.post("/fetchcartproduct", async (req, res) => {
-  let userinfo;
-  if (req.body.auth) {
-    userinfo = await Users.findOne({ auth: req.body.auth });
+ 
     res.json({
       success: 1,
-      data: userinfo.cartData,
+      data: []
     });
-  }
+  
 });
 //API for fetching products from db
 app.get("/allproducts", async (req, res) => {
