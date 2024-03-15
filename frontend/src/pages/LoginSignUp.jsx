@@ -83,7 +83,7 @@ export const LoginSignUp = () => {
         />
         <button
           onClick={() => {
-            handlelogin()
+            handlelogin();
           }}
           style={{
             width: "45%",
@@ -94,7 +94,7 @@ export const LoginSignUp = () => {
             fontSize: "1.5vmax",
           }}
         >
-     continue
+          continue
         </button>
         <button
           onClick={() => {
@@ -136,10 +136,21 @@ export const LoginSignUp = () => {
             value={inputs.email || ""}
             onChange={handleChange}
           />
-          <input
-            type="submit"
-            style={{ width: "25%", backgroundColor: "#313d52", color: "white" }}
-          />
+          <button
+            onClick={() => {
+              handlesignup();
+            }}
+            style={{
+              width: "45%",
+              color: "white",
+              backgroundColor: "#313d52",
+              height: "3vmax",
+              borderRadius: "10px",
+              fontSize: "1.5vmax",
+            }}
+          >
+           sign up
+          </button>
           <p>or</p>
           <div id="google_in">
             <svg
