@@ -99,15 +99,12 @@ app.post("/signup", async (req, res) => {
       .status(400)
       .json({ success: false, error: "email is laready used" });
   }
-  let cart = {};
-  for (let i = 0; i < 300; i++) {
-    cart[i] = 0;
-  }
+  
   const user = new Users({
     name: req.body.username,
     email: req.body.email,
     password: req.body.password,
-    cartData: cart,
+    cartData: [],
   });
   await user.save();
   const data = {
