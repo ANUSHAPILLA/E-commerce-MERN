@@ -79,17 +79,14 @@ app.post("/signup", async (req, res) => {
   if (check) {
     return res
       .status(400)
-      .json({ success: false, error: "email is laready used" });
+      .json({ success: false, error: "email is already used" });
   }
-  let cart = {};
-  for (let i = 0; i < 300; i++) {
-    cart[i] = 0;
-  }
+  else{
   const user = new Users({
     name: req.body.username,
     email: req.body.email,
     password: req.body.password,
-    cartData: cart,
+    cartData: [],
   });
   await user.save();
   const data = {
@@ -102,6 +99,7 @@ app.post("/signup", async (req, res) => {
     success: true,
     token,
   });
+}
 });
 //API for adding product to mongoose from admin panel
 app.post("/addproduct", async (req, res) => {
